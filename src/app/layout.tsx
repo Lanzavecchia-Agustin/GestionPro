@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import ReactQueryProvider from './ReactQueryProvider';
 import localFont from 'next/font/local';
 import { Toaster } from '@/components/ui/toaster';
+import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import './globals.css';
 
 const geistSans = localFont({
@@ -31,8 +32,15 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReactQueryProvider>
-          <main>{children}</main>
-          <Toaster />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <main>{children}</main>
+            <Toaster />
+          </ThemeProvider>
         </ReactQueryProvider>
       </body>
     </html>

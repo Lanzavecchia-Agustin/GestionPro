@@ -72,7 +72,6 @@ export function ForgotPasswordForm() {
           <Button
             type="submit"
             className="w-full"
-            variant={'secondary'}
             disabled={status === 'pending'} // Desactivamos el botón si la mutación está en progreso
           >
             {status === 'pending' ? 'Enviando...' : 'Enviar'}

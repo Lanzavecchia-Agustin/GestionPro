@@ -87,7 +87,6 @@ export default function SignUpForm() {
           />
 
           <Button
-            variant={'secondary'}
             type="submit"
             className="w-full"
             disabled={status === 'pending'} // Desactivar el botón si la mutación está en progreso

@@ -89,12 +89,7 @@ export function LoginForm() {
             <Link href={'/forgot-password'}>Recuperar contraseña</Link>
           </p>
 
-          <Button
-            variant={'secondary'}
-            type="submit"
-            className="w-full"
-            disabled={isLoading}
-          >
+          <Button type="submit" className="w-full" disabled={isLoading}>
             {isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
           </Button>
         </form>

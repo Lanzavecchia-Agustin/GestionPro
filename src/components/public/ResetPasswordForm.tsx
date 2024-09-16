@@ -105,7 +105,6 @@ export default function ResetPasswordForm() {
           <Button
             type="submit"
             className="w-full"
-            variant="secondary"
             disabled={status === 'pending'}
           >
             {status === 'pending'
