@@ -1,7 +1,7 @@
 import VerifyEmailForm from '@/components/public/VerifyEmailForm';
 
-const SignUpPage = () => {
+const VerifyEmailPage = () => {
   return <VerifyEmailForm />;
 };
 
-export default SignUpPage;
+export default VerifyEmailPage;

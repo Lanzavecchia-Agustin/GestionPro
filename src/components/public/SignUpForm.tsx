@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { useRegisterUser } from '@/services/auth/signup'; // Usamos el hook desde services
+import { useRouter } from 'next/navigation';
 
 // Definir el esquema de validación con Zod para solo email y contraseña
 const formSchema = z.object({
@@ -30,6 +31,7 @@ const formSchema = z.object({
 type FormSchemaType = z.infer<typeof formSchema>;
 
 export default function SignUpForm() {
+  const router = useRouter();
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
@@ -92,14 +94,18 @@ export default function SignUpForm() {
           >
             {status === 'pending' ? 'Registrando...' : 'Registrarse'}
           </Button>
-
-          <p className="text-sm text-muted-foreground">
-            ¿Ya tienes una cuenta?{' '}
-            <Button variant="link" className="text-background">
-              Iniciar sesión
-            </Button>
-          </p>
         </form>
+
+        <p className="text-sm text-muted-foreground">
+          ¿Ya tienes una cuenta?{' '}
+          <Button
+            variant="link"
+            className="text-background"
+            onClick={() => router.push('/login')}
+          >
+            Iniciar sesión
+          </Button>
+        </p>
       </Form>
     </>
   );
